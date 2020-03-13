@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/HealthWatcher.iml" filepath="$PROJECT_DIR$/HealthWatcher.iml" group="HealthWatcher" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="HealthWatcher/app" />
+      <module fileurl="file://$PROJECT_DIR$/commons-math3-3.6.1/commons-math3-3.6.1.iml" filepath="$PROJECT_DIR$/commons-math3-3.6.1/commons-math3-3.6.1.iml" group="HealthWatcher/commons-math3-3.6.1" />
     </modules>
   </component>
 </project>

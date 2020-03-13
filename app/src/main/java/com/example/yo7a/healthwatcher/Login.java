@@ -30,7 +30,6 @@ public class Login extends AppCompatActivity {
     UserDB check = new UserDB(this);
     int c,y=0;
     int check1=0;
-    private static final int MY_PERMISSIONS_REQUEST_CAMERA = 555;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,12 +59,12 @@ public class Login extends AppCompatActivity {
         Log.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                addPermissonCamera(Login.this);
+                register();
             }
         });
     }
 
-    private void login(){
+    private void register(){
         check1=0;
         heightStr = ed1.getText().toString();
         weightStr = ed2.getText().toString();
@@ -140,25 +139,6 @@ public class Login extends AppCompatActivity {
             startActivity(i);
             finish();
 
-        }
-    }
-
-    private void  addPermissonCamera(Activity activity) {
-        if (ContextCompat.checkSelfPermission(activity, android.Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(activity, new String[]{android.Manifest.permission.CAMERA}, MY_PERMISSIONS_REQUEST_CAMERA);
-        }
-    }
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        switch (requestCode) {
-            case MY_PERMISSIONS_REQUEST_CAMERA: {
-                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    login();
-                } else {
-                    addPermissonCamera(this);
-                }
-            }
         }
     }
 }
