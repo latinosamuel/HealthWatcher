@@ -6,23 +6,23 @@ public class Fft {
 		double temp = 0;
 		double POMP = 0;
 		double frequency;
-		double[] output = new double[2*size];
+		double[] output = new double[2*in.length];
 
 		for(int i=0;i<output.length;i++)
 			output[i] = 0;
 		
-		for(int x=0;x<size;x++){
+		for(int x=0;x<in.length;x++){
 			output[x]=in[x];
 		}
 
-		DoubleFft1d fft = new DoubleFft1d(size);
+		DoubleFft1d fft = new DoubleFft1d(in.length);
 		fft.realForward(output);
 
-		for(int x=0;x<2*size;x++){
+		for(int x=0;x<2*in.length;x++){
 			output[x]= Math.abs(output[x]);
 		}
 
-		for(int p=35; p<size; p++) {// 12 was chosen because it is a minimum frequency that we think people can get to determine heart rate.
+		for(int p=35; p<in.length; p++) {// 12 was chosen because it is a minimum frequency that we think people can get to determine heart rate.
         	if(temp < output[p]) {
         		temp = output[p];
         		POMP = p;
@@ -34,7 +34,7 @@ public class Fft {
     	POMP = 0;
     	}
 
-        frequency = POMP*samplingFrequency/(2*size);
+        frequency = POMP*samplingFrequency/(2*in.length);
         return frequency;
 	}
 }

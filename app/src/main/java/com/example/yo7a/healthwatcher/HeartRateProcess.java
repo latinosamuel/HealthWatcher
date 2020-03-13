@@ -191,9 +191,11 @@ public class HeartRateProcess extends Activity {
                 }
                 else if((bpm1 > 45 || bpm1 < 200)){
                     bufferAvgB = bpm1;
+                }else {
+                    bufferAvgB = bpm1;
                 }
 
-                if (bufferAvgB < 45 || bufferAvgB > 200) { //if the heart beat wasn't reasonable after all reset the progresspag and restart measuring
+                /*if (bufferAvgB < 45 || bufferAvgB > 200) { //if the heart beat wasn't reasonable after all reset the progresspag and restart measuring
                     inc=0;
                     ProgP=inc;
                     ProgHeart.setProgress(ProgP);
@@ -203,7 +205,7 @@ public class HeartRateProcess extends Activity {
                     counter=0;
                     processing.set(false);
                     return;
-                }
+                }*/
 
                 Beats=(int)bufferAvgB;
             }
