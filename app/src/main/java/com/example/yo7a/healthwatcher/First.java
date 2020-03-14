@@ -54,7 +54,11 @@ public class First extends AppCompatActivity {
         Meas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                requestPermissionCamera(First.this);
+                if (ContextCompat.checkSelfPermission(First.this, android.Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+                    ActivityCompat.requestPermissions(First.this, new String[]{android.Manifest.permission.CAMERA}, MY_PERMISSIONS_REQUEST_CAMERA);
+                }else {
+                    login();
+                }
             }
         });
 
